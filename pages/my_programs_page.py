@@ -32,3 +32,5 @@ class MyProgramsPage(BasePage):
     def is_program_exists(self, name):
         return len(self.find_all(By.XPATH, f'//a[text()="{name}"]')) > 0
 
+    def return_program_categories(self, name):
+        return self.find(By.XPATH, f'//a[text()="{name}"]//ancestor::tr[1]/td[2]').text.split(', ')

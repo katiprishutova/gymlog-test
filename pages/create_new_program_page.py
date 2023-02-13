@@ -29,10 +29,11 @@ class CreateNewProgramPage(BasePage):
 
     def fill_categories(self):
         self.find(*select_categories).click()
-        if len(self.find(*categories)) > 0:
+        if len(self.find_all(*categories)) > 0:
             element = self.find(*categories)
+            name = element.text
             element.click()
-            return element.text
+            return name
 
     def mark_checkbox_public(self):
         self.find(*checkbox_public).click()
